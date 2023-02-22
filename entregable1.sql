@@ -98,3 +98,29 @@ ALTER TABLE "users_courses" ADD FOREIGN KEY ("state") REFERENCES "course_state" 
 ALTER TABLE "course" ADD FOREIGN KEY ("type") REFERENCES "type_course" ("id");
 
 ALTER TABLE "course" ADD FOREIGN KEY ("teacher") REFERENCES "teachers" ("id");
+
+
+INSERT INTO level (level) VALUES ('basic'),('intermediate'),('advancet');
+INSERT INTO teachers (name,last_name, email,age) VALUES ('brenda','Gonzales','brendaG@gmail.com',28),('andres','Mendoza','andresM@gmail.com',25),('ian','rosas','IanRosas@gmail.com',27);
+INSERT INTO categories (name) VALUES ('Web development'),('Graphic desing'),('Marketing digital'),('mobile development');
+INSERT INTO type_course (type) VALUES ('Buy Now'),('Free');
+INSERT INTO course_video (title,url,duration) VALUES ('Fundamentos HTML JS CSS','http://academlovideohtmljscss.com/',5),('Tutorial ReactJS','http://academlovideosreactjs.com/',8),('Tutorial Node DataBase','http://academlovideonode.com/',9);
+INSERT INTO course_state (state) VALUES ('in progress'),('Finalized');
+INSERT INTO users (name,last_name,email,password,age) VALUES ('maria','fernanda','mariaFer@gmail.com','mafer1234',29),('juan','carlos','JuanCa@gmail.com','juanca2019',25),('martin','santiago','martinSan@gmail.com','password123',18);
+INSERT INTO roles (name) VALUES ('Student'),('Teacher'),('Admin');
+
+INSERT INTO course (title,description,level,teacher,categorie_fk,type,price) VALUES 
+('Fundamentos HTML JS CSS','The student will obtain the necessary skills to correctly develop the visual part of a website',1,1,1,2,00.00),
+('Tutorial ReactJS','The student will learn to create web applications with React JS, achieving a great interaction with the user using previous knowledge of HTML, CSS and Javascript.',2,2,1,1,25.00),
+('Tutorial Node DataBase','The student will learn to build an application from the server with Node and Express from 0 to deployment on a server. She will have the ability to perform a Rest API using a relational database, user authentication, security against XSS and CSRF attacks, she will be able to validate the data that the server receives, and she will be able to build custom middleware with Express.',3,3,1,1,25.00);
+
+INSERT INTO video_per_course (course_fk, video_fk) VALUES (1,1),(2,2),(3,3);
+
+INSERT INTO users_courses (user_fk,course_video_fk,state) VALUES (1,2,1),(2,1,1),(3,3,1);
+
+INSERT INTO roles_users (user_fk,role_fk) VALUES (1,1),(2,1),(3,1);
+
+
+
+
+
